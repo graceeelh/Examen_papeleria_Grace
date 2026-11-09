@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Frameworks</title>
+</head>
+<body style="background-color: #dfc4f0;">
+   <center> <h1 style="background-color: lavender;color:darkslateblue;font-family: Georgia, 'Times New Roman', Times, serif;">Papeleria Escolar<br>CECyTEM</h1></center>
+<h1 style="color: mediumpurple;"><strong>Quieres impresiones con las 3B?</strong></h1>
+<p style="font-size: medium;font-family: Verdana, Geneva, Tahoma, sans-serif;">Pues en papeleria CECyTEM, tenemos todo lo que necesitas</p>
+<h2 style="background-color: pink;"><strong>Contamos con:</strong></h2>
+<ul style="color: plum;font-size: larger;"><strong>
+    <li>Copias a color</li>
+    <li>Copias a blanco y negro</li>
+    <li>Descuento si eres estudiante</li>
+</strong></ul>
+<h2 style="background-color: lightskyblue;"><strong>Nuestros Precios</strong></h2>
+<ul style="font-family: 'Times New Roman', Times, serif;font-size: larger;color: rgb(92, 167, 192);">
+  <p style="color: cornflowerblue;font-size: larger;font-family: Verdana, Geneva, Tahoma, sans-serif;"><strong>Copias a color</strong></p>
+  <li> 1-50: $1.50</li>
+  <li> 51-100: $1.30</li>
+  <li> >100: $1.00</li>
+</ul>
+<ul>
+     <p style="color: cornflowerblue;font-size: larger;font-family: Verdana, Geneva, Tahoma, sans-serif;"><strong>Copias a blanco y negro</strong></p>
+  <li> 1-50: $1.00</li>
+  <li> 51-100: $0.80</li>
+  <li> >100: $0.50</li> 
+</ul>
+<h2><strong>Descuento para leopardos</strong></h2>
+<p style="background-color: lavender;font-size: larger;">Si formas parte de la comunidad leopardo, presentando tu<br> credencial o en su defecto como en esta pagina<br>
+tu numero de control obtendras un maravilloso descuento del <strong>25%</strong> en tus copias</p>
+    <h2 style="color: rebeccapurple;">Calcula cuanto pagaras por tus copias</h2>
+<p><strong>Cuantas copias deseas?</strong></p>
+<input type="number" id="copias">
+<p><strong>Selecciona el tipo de copia que deseas</strong></p>
+<select id="tipo">
+<option value="color">Color</option>
+<option value="blanco">Blanco y negro</option>
+</select>
+<p><strong> Eres leopardo?<br>Introduce aqui tu numero de control</strong></p>
+<input type="text" id="control">
+<br><br>
+<button onclick="calcular()">Calcular</button>
+<p id="resultado"></p>
+<script>
+function calcular() {
+let copias = document.getElementById("copias").value;
+let tipo = document.getElementById("tipo").value;
+let control = document.getElementById("control").value;
+let precio;
+if (copias <= 50) {
+    if (tipo == "color") {
+        precio = 1.50;
+    } else {
+        precio = 1;
+    }
+}
+else if (copias <= 100) {
+    if (tipo == "color") {
+        precio = 1.30;
+    } else {
+        precio = 0.80;
+    }
+}
+else {
+    if (tipo == "color") {
+        precio = 1;
+    } else {
+        precio = 0.50;
+    }
+}
+let total = copias * precio;
+if (control != "") {
+    total = total * 0.75;
+}
+document.getElementById("resultado").innerHTML = total;
+}
+</script>
+</body>
+</html>
